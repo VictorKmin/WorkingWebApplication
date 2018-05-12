@@ -1,4 +1,4 @@
-package app.service.Impl;
+package app.service.userService;
 
 
 import app.dao.UserDao;
@@ -25,6 +25,8 @@ public class UserImpl implements UserService {
 
     @Override
     public void save(User user) {
+        if (user != null) {
         userDao.save(user);
+        }
     }
 }

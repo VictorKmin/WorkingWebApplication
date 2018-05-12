@@ -12,8 +12,8 @@ public class User {
     private int id;
     private String name;
 
-//    @OneToMany(fetch = )
-//    List<Car> cars = new ArrayList<>();
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    List<Car> cars = new ArrayList<>();
 
     public User() {
     }
@@ -38,19 +38,28 @@ public class User {
         this.name = name;
     }
 
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
         return getId() == user.getId() &&
-                Objects.equals(getName(), user.getName());
+                Objects.equals(getName(), user.getName()) &&
+                Objects.equals(getCars(), user.getCars());
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getName());
+        return Objects.hash(getId(), getName(), getCars());
     }
 
     @Override

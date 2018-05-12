@@ -13,7 +13,11 @@
 <body>
 
 <form action="/save/user" method="post">
-    <input type="text" name="name">
+    <input type="text" name="name" placeholder="UserName">
+    <input type="submit">
+</form>
+<form action="/save/car" method="post">
+    <input type="text" name="model" placeholder="CarModel">
     <input type="submit">
 </form>
 
